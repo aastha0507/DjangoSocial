@@ -1,6 +1,6 @@
 # Django Social
 
-Fully functional Django App that looks ecxatly like real Twitter.
+Fully functional Django App that looks exactly like real Twitter.
 
 ## Setup
 
