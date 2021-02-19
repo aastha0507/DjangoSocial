@@ -161,6 +161,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['content', 'pic']
     template_name = 'blog/post_new.html'
+    context_object_name = 'post'
     success_url = '/'
 
     def form_valid(self, form):

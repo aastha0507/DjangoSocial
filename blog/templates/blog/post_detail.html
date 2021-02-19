@@ -39,9 +39,11 @@
                 <p>
                     {{ post.content }}
                 </p>
-                <a href="{{ blog.pic.url }}"
-          ><img class="card-img-top" src="{{ blog.pic.url }}" alt=""
+                {% if post.pic %}
+                <a href="{{ post.pic.url }}"
+          ><img class="card-img-top" src="{{ post.pic.url }}" alt=""
         /></a>
+                {% endif %}
                 
 
                 <small
