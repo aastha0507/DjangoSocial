@@ -90,6 +90,12 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
+REST_FRAMEWORK = { 
+    'DEFAULT_AUTHENTICATION_CLASSES': [ 
+        'rest_framework_simplejwt.authentication.JWTAuthentication', 
+    ], 
+} 
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -115,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 

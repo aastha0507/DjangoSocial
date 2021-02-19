@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Count
-from .forms import NewCommentForm
+from .forms import NewCommentForm, NewPostForm
 from django.contrib.auth.decorators import login_required
 from .serializers import UserSerializer, GroupSerializer, PostSerializer
 from django.contrib.auth.models import User, Group
@@ -15,6 +15,7 @@ from rest_framework import permissions
 from rest_framework.decorators import api_view
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 
 
@@ -23,6 +24,8 @@ def is_users(post_user, logged_user):
 
 
 PAGINATION_COUNT = 3
+
+
 
 
 class PostListView(LoginRequiredMixin, ListView):
@@ -139,9 +142,10 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['content']
+    fields = ['content', 'pic']
     template_name = 'blog/post_new.html'
     success_url = '/'
+    
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -155,7 +159,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['content']
+    fields = ['content', 'pic']
     template_name = 'blog/post_new.html'
     success_url = '/'
 

@@ -6,10 +6,13 @@ from .models import Profile
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
+    country = forms.CharField()
+    mobile_number = forms.CharField(max_length=10)
+
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1']
+        fields = ['username', 'email', 'password1', 'country', 'mobile_number']
 
 
 class UserUpdateForm(forms.ModelForm):

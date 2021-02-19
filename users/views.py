@@ -37,7 +37,7 @@ def profile(request):
 
 
 
-@login_required
+@login_required   #this tells that it wont show the data if the user is not logged in
 def SearchView(request):
     if request.method == 'POST':
         kerko = request.POST.get('search')

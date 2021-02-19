@@ -12,7 +12,8 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='post',
-            name='content',
+            name='content', 
             field=models.TextField(max_length=150),
+
         ),
     ]
